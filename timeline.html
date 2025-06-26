@@ -685,4 +685,55 @@
                 </div>
             </div>
 
-            <div class="timeline-
+            <div class="timeline-item">
+                <div class="timeline-date">Jun 2025</div>
+                <div class="milestone-icon"></div>
+                <div class="timeline-content category-future">
+                    <div class="timeline-title">Mistral lanza Magistral</div>
+                    <div class="timeline-description">Nuevo modelo especializado con capacidades avanzadas de razonamiento y comprensión contextual.</div>
+                </div>
+            </div>
+
+            <div class="era-divider">
+                <div class="era-label">🌈 El Futuro de la IA</div>
+            </div>
+
+            <div style="text-align: center; padding: 40px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); border-radius: 15px; margin: 40px 0;">
+                <h2 style="color: #333; margin-bottom: 20px;">🚀 ¿Qué nos depara el futuro?</h2>
+                <p style="color: #666; font-size: 1.1rem; line-height: 1.6; max-width: 800px; margin: 0 auto;">
+                    Desde los fundamentos matemáticos del siglo XVIII hasta los modelos de lenguaje actuales, 
+                    la IA ha evolucionado de teorías abstractas a herramientas que transforman nuestra realidad. 
+                    Cada hito ha construido sobre los anteriores, acelerando exponencialmente hacia un futuro 
+                    donde la inteligencia artificial será indistinguible de la colaboración humana.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Añadir animación de aparición progresiva
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Aplicar animación a todos los elementos del timeline
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(item);
+        });
+
+        // Efecto de paralaje suave en el scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            document.body.style.backgroundPosition = `0 ${rate}px`;
+        });
+    </script>
