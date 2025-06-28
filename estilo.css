@@ -49,3 +49,21 @@ blockquote {
     padding: 15px 20px;
     font-style: italic;
 }
+
+a.feature-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: rgba(120, 119, 198, 0.1);
+    border: 1px solid rgba(120, 119, 198, 0.3);
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+a.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(120, 119, 198, 0.2);
+}
+
