@@ -214,6 +214,46 @@
         .category-modern { border-left: 4px solid #f39c12; }
         .category-llm { border-left: 4px solid #9b59b6; }
         .category-future { border-left: 4px solid #1abc9c; }
+
+        /* Botón de regreso al inicio */
+        .back-to-index {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-to-index:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+            background: linear-gradient(45deg, #7986cb, #8e24aa);
+        }
+
+        .back-to-index:active {
+            transform: translateY(-1px);
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 768px) {
+            .back-to-index {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 16px;
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -711,6 +751,11 @@
 
     </div>
 
+    <!-- Botón de regreso al inicio -->
+    <a href="index.html" class="back-to-index">
+        🏠 Volver al Inicio
+    </a>
+
     <script>
         // Añadir animación de aparición progresiva
         const observer = new IntersectionObserver((entries) => {
@@ -737,3 +782,5 @@
             document.body.style.backgroundPosition = `0 ${rate}px`;
         });
     </script>
+</body>
+</html>

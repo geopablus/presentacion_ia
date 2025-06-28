@@ -4,103 +4,318 @@
     <meta charset="UTF-8">
     <title>IA en Nuestros Tiempos</title>
     <link rel="stylesheet" href="estilo.css">
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="versiculos.html">Versículos</a></li>
-            <li><a href="definiciones.html">Definiciones</a></li>
-            <li><a href="timeline.html">Historia IA</a></li>
-        </ul>
-    </nav>
-    <main>
-        <h1>Bienvenido</h1>
-        <p>Presentación interactiva sobre la Inteligencia Artificial, su historia, visión bíblica y conceptos clave.</p>
-    </main>
-</body>
-</html>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<!-- versiculos.html -->
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Versículos Bíblicos</title>
-  <link rel="stylesheet" href="estilo.css">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Fondo animado con partículas y gradientes */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(ellipse at top, #1a1a2e, #16213e, #0f0f23);
+        }
+
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.2) 0%, transparent 50%);
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        /* Header común */
+        .common-header {
+            position: relative;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(120, 119, 198, 0.3);
+            padding: 20px 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .ai-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #7877c6, #ff77c6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            animation: iconGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes iconGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(120, 119, 198, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(255, 119, 198, 0.7); }
+        }
+
+        .title-section h1 {
+            font-size: 2rem;
+            background: linear-gradient(45deg, #7877c6, #ff77c6, #78c8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Navegación */
+        .nav-section {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .nav-item {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: rgba(120, 119, 198, 0.1);
+            border: 1px solid rgba(120, 119, 198, 0.3);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background: rgba(120, 119, 198, 0.2);
+            border-color: rgba(120, 119, 198, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(120, 119, 198, 0.3);
+        }
+
+        /* Área de contenido principal */
+        .main-content {
+            position: relative;
+            z-index: 10;
+            min-height: calc(100vh - 140px);
+            padding: 40px 20px;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(120, 119, 198, 0.2);
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-container h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #78c8ff, #7877c6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        blockquote {
+            background: rgba(120, 119, 198, 0.1);
+            border-left: 5px solid #7877c6;
+            margin: 30px 0;
+            padding: 25px 30px;
+            font-style: italic;
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        blockquote em {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            display: block;
+            margin-top: 15px;
+            text-align: right;
+        }
+
+        /* Footer común */
+        .common-footer {
+            background: rgba(0, 0, 0, 0.9);
+            border-top: 1px solid rgba(120, 119, 198, 0.3);
+            padding: 20px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            position: relative;
+            z-index: 100;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .title-section h1 {
+                font-size: 1.5rem;
+            }
+
+            .nav-section {
+                justify-content: center;
+            }
+
+            .content-container {
+                padding: 20px;
+                margin: 0 10px;
+            }
+
+            .content-container h2 {
+                font-size: 1.5rem;
+            }
+
+            blockquote {
+                padding: 20px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Botón de regreso al inicio - estilo especial para esta página */
+        .back-to-index {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #7877c6, #ff77c6);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 8px 25px rgba(120, 119, 198, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .back-to-index:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(120, 119, 198, 0.5);
+            background: linear-gradient(45deg, #9575cd, #ff77c6);
+        }
+
+        .back-to-index:active {
+            transform: translateY(-1px);
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 768px) {
+            .back-to-index {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 16px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="background-container"></div>
-  <div class="background-overlay"></div>
-  <header class="common-header">
-    <div class="header-content">
-      <div class="logo-section">
-        <div class="ai-icon">✝️</div>
-        <div class="title-section">
-          <h1>Visión Bíblica</h1>
-          <div class="subtitle">Sabiduría espiritual y tecnología</div>
+    <div class="background-container"></div>
+    <div class="background-overlay"></div>
+    
+    <header class="common-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="ai-icon">✝️</div>
+                <div class="title-section">
+                    <h1>Visión Bíblica</h1>
+                    <div class="subtitle">Sabiduría espiritual y tecnología</div>
+                </div>
+            </div>
+            <nav class="nav-section">
+                <a href="index.html" class="nav-item">🏠 Inicio</a>
+                <a href="versiculos.html" class="nav-item active">✝️ Versículos</a>
+                <a href="definiciones.html" class="nav-item">🤖 Definiciones</a>
+                <a href="timeline.html" class="nav-item">📚 Historia IA</a>
+            </nav>
         </div>
-      </div>
-      <nav class="nav-section">
-        <a href="index.html" class="nav-item">🏠 Inicio</a>
-        <a href="versiculos.html" class="nav-item active">✝️ Versículos</a>
-        <a href="definiciones.html" class="nav-item">🤖 Definiciones</a>
-        <a href="timeline.html" class="nav-item">📚 Historia IA</a>
-      </nav>
-    </div>
-  </header>
+    </header>
 
-  <main class="main-content">
-    <div class="content-container">
-      <h2>📖 Versículos sobre discernimiento y sabiduría</h2>
-      <blockquote>
-        “De los hijos de Isacar, expertos en discernir los tiempos, con conocimiento de lo que Israel debía hacer, sus jefes eran doscientos; y todos sus parientes estaban bajo sus órdenes.”<br>
-        <em>1 Crónicas 12:32 — La Biblia de las Américas</em>
-      </blockquote>
-      <blockquote>
-        “Y no os adaptéis a este mundo, sino transformaos mediante la renovación de vuestra mente, para que verifiquéis cuál es la voluntad de Dios: lo que es bueno, aceptable y perfecto.”<br>
-        <em>Romanos 12:2 — La Biblia de las Américas</em>
-      </blockquote>
-      <blockquote>
-        “Si el hacha se desafila y no se la vuelve a afilar, habrá que golpear con más fuerza. Vale más hacer las cosas bien y con sabiduría.”<br>
-        <em>Eclesiastés 10:10 — Dios Habla Hoy</em>
-      </blockquote>
-    </div>
-  </main>
+    <main class="main-content">
+        <div class="content-container">
+            <h2>📖 Versículos sobre discernimiento y sabiduría</h2>
+            <blockquote>
+                "De los hijos de Isacar, expertos en discernir los tiempos, con conocimiento de lo que Israel debía hacer, sus jefes eran doscientos; y todos sus parientes estaban bajo sus órdenes."<br>
+                <em>1 Crónicas 12:32 — La Biblia de las Américas</em>
+            </blockquote>
+            <blockquote>
+                "Y no os adaptéis a este mundo, sino transformaos mediante la renovación de vuestra mente, para que verifiquéis cuál es la voluntad de Dios: lo que es bueno, aceptable y perfecto."<br>
+                <em>Romanos 12:2 — La Biblia de las Américas</em>
+            </blockquote>
+            <blockquote>
+                "Si el hacha se desafila y no se la vuelve a afilar, habrá que golpear con más fuerza. Vale más hacer las cosas bien y con sabiduría."<br>
+                <em>Eclesiastés 10:10 — Dios Habla Hoy</em>
+            </blockquote>
+        </div>
+    </main>
 
-  <footer class="common-footer">
-    <p>&copy; 2025 - Versículos y Sabiduría en Tiempos de IA</p>
-  </footer>
-</body>
-</html>
+    <footer class="common-footer">
+        <p>&copy; 2025 - Versículos y Sabiduría en Tiempos de IA</p>
+    </footer>
 
-<!-- definiciones.html -->
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Definiciones de IA</title>
-    <link rel="stylesheet" href="estilo.css">
-</head>
-<body>
-    <h1>🤖 ¿Qué es la IA?</h1>
-    <h2>Inteligencia Artificial (IA)</h2>
-    <p>
-        La inteligencia artificial (IA) es la capacidad que tienen los ordenadores o máquinas de realizar tareas que normalmente requieren inteligencia humana, como reconocer imágenes, entender lenguaje o tomar decisiones.
-        Se basa en algoritmos y datos: cuanto más aprenden de ejemplos, mejor funcionan. No es “magia”, sino programas diseñados para imitar procesos mentales humanos.
-    </p>
-
-    <h2>Machine Learning (ML)</h2>
-    <p>
-        El Machine Learning es una rama de la IA que permite a los ordenadores aprender de datos sin programación explícita. A través de ejemplos (por ejemplo, fotos de gatos y perros), el sistema detecta patrones y mejora sus predicciones o decisiones con el tiempo.
-    </p>
-
-    <h2>Deep Learning (DL)</h2>
-    <p>
-        Es un tipo de Machine Learning que usa redes neuronales con muchas “capas” de procesamiento. Esto le da capacidad para reconocer patrones complejos (como voces, caras o lenguaje) de forma más parecida a cómo funciona el cerebro humano.
-    </p>
-
-    <h2>📊 Gráfico relacionado</h2>
-    <img src="img/grafico_ia.png" alt="Gráfico sobre IA" style="max-width: 100%; height: auto;">
+    <!-- Botón de regreso al inicio -->
+    <a href="index.html" class="back-to-index">
+        🏠 Volver al Inicio
+    </a>
 </body>
 </html>
