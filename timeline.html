@@ -19,7 +19,7 @@
         }
 
         .timeline-container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
@@ -74,11 +74,12 @@
 
         .timeline-content {
             background: #fff;
-            padding: 20px;
+            padding: 15px 20px;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             position: relative;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 350px;
         }
 
         .timeline-content:hover {
@@ -111,16 +112,18 @@
             transform: translateX(-50%);
             background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 12px 20px;
+            border-radius: 25px;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
             z-index: 10;
+            min-width: 120px;
+            text-align: center;
         }
 
         .timeline-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: #333;
             margin-bottom: 8px;
@@ -128,7 +131,7 @@
 
         .timeline-description {
             color: #666;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.4;
         }
 
@@ -184,6 +187,7 @@
                 margin-left: 60px;
                 margin-right: 0;
                 text-align: left;
+                max-width: calc(100% - 80px);
             }
 
             .timeline-item:nth-child(odd) .timeline-content::after,
@@ -197,6 +201,9 @@
             .timeline-date {
                 left: 30px;
                 transform: translateX(-50%);
+                font-size: 0.9rem;
+                padding: 8px 12px;
+                min-width: 100px;
             }
 
             .milestone-icon {
@@ -205,6 +212,11 @@
 
             h1 {
                 font-size: 2rem;
+            }
+
+            .timeline-container {
+                padding: 20px;
+                margin: 0 10px;
             }
         }
 
