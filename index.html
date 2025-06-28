@@ -134,7 +134,7 @@
             background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(120, 119, 198, 0.3);
-            padding: 20px 0;
+            padding: 30px 0;
             z-index: 100;
         }
 
@@ -143,27 +143,29 @@
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
-            justify-content: between;
+            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
+            text-align: center;
         }
 
         .logo-section {
             display: flex;
+            flex-direction: column;
             align-items: center;
             gap: 15px;
         }
 
         .ai-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(45deg, #7877c6, #ff77c6);
-            border-radius: 12px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 30px;
             animation: iconGlow 3s ease-in-out infinite;
+            margin-bottom: 10px;
         }
 
         @keyframes iconGlow {
@@ -172,45 +174,21 @@
         }
 
         .title-section h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             background: linear-gradient(45deg, #7877c6, #ff77c6, #78c8ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             font-weight: 700;
         }
 
         .subtitle {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-            font-style: italic;
-        }
-
-        /* Navegación */
-        .nav-section {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
-
-        .nav-item {
             color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            background: rgba(120, 119, 198, 0.1);
-            border: 1px solid rgba(120, 119, 198, 0.3);
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .nav-item:hover, .nav-item.active {
-            background: rgba(120, 119, 198, 0.2);
-            border-color: rgba(120, 119, 198, 0.6);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(120, 119, 198, 0.3);
+            font-size: 1.1rem;
+            font-style: italic;
+            line-height: 1.4;
+            max-width: 600px;
         }
 
         /* Área de contenido principal */
@@ -284,11 +262,11 @@
             }
 
             .title-section h1 {
-                font-size: 1.5rem;
+                font-size: 2rem;
             }
 
-            .nav-section {
-                justify-content: center;
+            .subtitle {
+                font-size: 1rem;
             }
 
             .content-container {
@@ -322,8 +300,8 @@
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             margin-top: 40px;
         }
 
@@ -334,6 +312,9 @@
             padding: 30px 20px;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+            text-decoration: none;
+            color: inherit;
         }
 
         .feature-card:hover {
@@ -357,12 +338,6 @@
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.95rem;
             line-height: 1.4;
-        }
-        
-        a.feature-card {
-            display: block;
-            text-decoration: none;
-            color: inherit;
         }
     </style>
 </head>
@@ -392,15 +367,9 @@
                 <div class="ai-icon">🤖</div>
                 <div class="title-section">
                     <h1>Inteligencia Artificial</h1>
-                    <div class="subtitle">Historia, Visión Bíblica y Conceptos Clave</div>
+                    <div class="subtitle">Visión Bíblica, Historia, Herramientas actuales destacables, ejemplos y Conceptos Clave</div>
                 </div>
             </div>
-            <nav class="nav-section">
-                <a href="#historia" class="nav-item active">📚 Historia</a>
-                <a href="#vision-biblica" class="nav-item">✝️ Visión Bíblica</a>
-                <a href="#conceptos" class="nav-item">🧠 Conceptos</a>
-                <a href="#futuro" class="nav-item">🔮 Futuro</a>
-            </nav>
         </div>
     </header>
 
@@ -440,14 +409,30 @@
                             Explicaciones claras de machine learning, deep learning y modelos de lenguaje.
                         </p>
                     </a>
+
+                    <a href="#" class="feature-card">
+                        <span class="feature-icon">🛠️</span>
+                        <h3 class="feature-title">Herramientas Actuales</h3>
+                        <p class="feature-description">
+                            Descubre las principales herramientas de IA disponibles hoy: ChatGPT, Claude, Gemini y más.
+                        </p>
+                    </a>
+
+                    <a href="#" class="feature-card">
+                        <span class="feature-icon">💡</span>
+                        <h3 class="feature-title">Ejemplos de Uso</h3>
+                        <p class="feature-description">
+                            Casos prácticos y aplicaciones reales de la IA en diferentes sectores y actividades.
+                        </p>
+                    </a>
                     
-                    <div class="feature-card">
+                    <a href="#" class="feature-card">
                         <span class="feature-icon">🌟</span>
                         <h3 class="feature-title">Impacto Futuro</h3>
                         <p class="feature-description">
                             Análisis de las implicaciones y oportunidades de la IA en nuestra sociedad.
                         </p>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -508,17 +493,6 @@
             floatingElements.style.transform = `translateY(${scrollY * 0.1}px)`;
         }
 
-        // Navegación activa
-        function updateActiveNav() {
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
-                item.addEventListener('click', function(e) {
-                    navItems.forEach(nav => nav.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-        }
-
         // Animación de entrada
         function animateOnLoad() {
             const contentContainer = document.querySelector('.content-container');
@@ -536,27 +510,10 @@
         document.addEventListener('DOMContentLoaded', function() {
             createParticles();
             createFloatingElements();
-            updateActiveNav();
             animateOnLoad();
             
             window.addEventListener('scroll', handleScroll);
         });
-
-        // Función para cambiar contenido (usar en otras páginas)
-        function updatePageContent(title, content) {
-            document.querySelector('.demo-content h2').textContent = title;
-            document.querySelector('.demo-content p').innerHTML = content;
-        }
-
-        // Función para actualizar navegación activa
-        function setActiveNav(activeId) {
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('active');
-                if (item.getAttribute('href') === '#' + activeId) {
-                    item.classList.add('active');
-                }
-            });
-        }
     </script>
 </body>
 </html>
